@@ -63,3 +63,16 @@ function updateMemeCanvas(canvas, image, topText, bottomText) {
   ctx.strokeText(bottomText, width / 2, height - yOffset);
   ctx.fillText(bottomText, width / 2, height - yOffset);
 }
+function download() {
+  // get the canvas element
+  const canvas = document.getElementById("meme");
+  // create a temporary link element
+  const link = document.createElement("a");
+  // set the link's download attribute and filename
+  link.download = "meme.png";
+  // convert the canvas to a data URL and set it as the link's href
+  link.href = canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+  // simulate a click on the link to download the image
+  link.click();
+}
+
